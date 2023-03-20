@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style_d.css">
+    <!-- <link rel="stylesheet" href="static/css/style_d.css"> -->
+    <!-- CSS only -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Sono&display=swap" rel="stylesheet">   
+
+    <title>Create Adventure</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <!-- LEFT -->
+        <div class="float-left">
+            <h1 class="logo"> Now Boarding</h1>
+        </div>
+        
+
+        <!-- RIGHT -->
+        <div class="float-right">
+            <!-- <h3 class="text-center text-success p-10">Welcome, {{user.first_name}}</h3> -->
+            <!-- buttons -->
+            <a href="/dashboard" class="btn btn-light">Dashboard</a>
+            <a href="/logout" class="btn btn-light">Logout</a>
+        </div> 
+    </nav>
+    
+    <h2 class="text-center "> Log an Adventure</h2>
+    <div class="text-center text-muted">
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+        {% if messages %}                            <!-- check if there are any messages -->
+            {% for message in messages %}            <!-- loop through the messages -->
+                <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </div>
+
+
+    <!--Form (Create)-->
+    <form action="/adventure/create" method="post" class="text-center">
+        <div class="text-center">
+            <label>City: <input type="text" name="city"></label>
+        </div>
+        <div class="text-center m-4">
+            <label>Country: <input type="text" name="country"></label>
+        </div>
+        <div class="text-center">
+            <label>Arrival: <input type="date" name="arrival"></label>    
+        </div>
+        <div class="text-center m-4">
+            <label>Departure: <input type="date" name="departure"></label>    
+        </div>
+        <div class="text-center m-4">
+            <label>Memories: <input type="text" name="memories"></label>    
+        </div>
+
+        <!-- <form method="post" action="/up" enctype="multipart/form-data"> 
+            <dl>
+                <p>
+                    <input type="file" name="file" class="form-control" autocomplete="off" required>
+                </p>
+            </dl> -->
+
+
+        <!-- log Button-->
+        <div class="text-center m-4">
+            <input type="submit" value="Log" class="btn btn">  
+        </div>
+    </form> 
+    </form> 
+        <!-- <form method="post" action="/up" enctype="multipart/form-data"> 
+            <dl>
+                <p>
+                    <input type="file" name="file" class="form-control" autocomplete="off" required>
+                </p>
+            </dl>
+            <p>
+                <input type="submit" value="Submit" class="btn btn-info">
+            </p>
+            </form> -->
+</body>
+</html>

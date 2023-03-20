@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style_d.css">
+    <!-- css/bootstrap-->
+    <!-- #<link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" > -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Sono&display=swap" rel="stylesheet">
+
+
+    <title>Welcome, {{user.first_name}}</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+
+    <nav class="navbar navbar-inverse navbar-light bg-light  ">
+        <div class="float-left">
+            <!-- LEFT -->
+        <h1 class="logo"> Now Boarding </h1>
+
+        </div>
+
+        <h2 class="">  {{user.first_name}}'s Adventures!</h2>
+
+        <!-- RIGHT -->
+        <div class="float-right">
+            <!-- buttons -->
+            <a href="/new/adventure" class="btn btn-light ">Add an Adventure</a>
+            <a href="/logout" class="btn btn-light">Logout</a>
+        </div>
+    </nav>
+
+
+<!--Table-->
+<table class="table table-hover center">
+
+    <thead class="font-weight-bold">
+        <tr class="header text-center">
+            <td> City</td>
+            <td> Country</td>
+            <td>Year Visted</td>
+        </tr>
+    </thead>
+        {% for adventure in adventures %}
+    <tr class="text-center"> 
+        <td class=""> <a href="/adventure/{{adventure.id}}/show" class="name">{{adventure.city}}</a></td>
+        <td>{{adventure.country}}</td>
+
+        <!-- {% for arrival in arrivals %} -->
+        <td>{{adventure.arrival.strftime("%Y") }}</td>
+        <!-- {% endfor %} -->
+    </tr>
+        {% endfor%}
+
+</table>
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style_d.css">
+        <!--css/bootstrap-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top navbar-light bg-light">
+        <!-- LEFT -->
+        <div class="float-left">
+            <h1> Now Boarding</h1>
+        </div>
+
+
+        <!-- RIGHT -->
+        <div class="float-right">
+            <!-- buttons -->
+            <a href="/dashboard" class="btn btn-light">Dashboard</a>
+            <a href="/logout" class="btn btn-light">Logout</a>
+        </div>
+    </nav>
+
+
+    <div class=" d-flex justify-content-center">
+        <div class="text-center">
+            <h1>{{user.first_name}}'s Adventure </h1>
+{% if filename %}
+<div style="padding:20px;">
+    <img src="{{url_for('display_image', filename=filename)}}">
+</div>
+{% endif %}
+            <ul><h3> {{adventure.city}}, {{adventure.country}} </h3></ul>
+            <ul>I arrived on  {{adventure.arrival.strftime("%B %d, %Y")}}</ul>
+            <ul> I departed on {{adventure.departure.strftime("%B %d, %Y")}}</ul>
+            <ul> A memory I won't forget from this trip is...{{adventure.memories}}</ul>
+        </div>
+    </div>
+
+    <a href="/adventure/{{adventure.id}}/edit" class="">Edit Your Adventure</a> 
+        <a href="/adventures/{{adventure.id}}/destroy" class="btn btn-info  float-right ">Delete</a>
+    
+
+
+
+
+
+</body>
+</html>
